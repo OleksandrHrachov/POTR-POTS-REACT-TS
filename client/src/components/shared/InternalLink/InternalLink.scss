@@ -1,0 +1,27 @@
+.internal-link {
+  font-family: var(--text-style-bebas);
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--color-grey-33);
+  margin: 0;
+  margin-right: 15px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--selected {
+    border-bottom: 2px solid var(--color-grey-33);
+  }
+}

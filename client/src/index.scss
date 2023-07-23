@@ -1,0 +1,31 @@
+@import './utils/fonts';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-grey-F8);
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+:root {
+  --color-turquoise: #03839e;
+  --color-grey-4F: #4f4f4f;
+  --color-grey-33: #333;
+  --color-grey-82: #828282;
+  --color-grey-BD: #bdbdbd;
+  --color-grey-F8: #f8f8f8;
+  --color-grey-E0: #e0e0e0;
+  --color-yellow: #ffe339;
+  --color-yellow-light: #ffec7a;
+  --color-red: #eb5757;
+
+  --text-style-bebas: "Bebas Neue", sans-serif;
+  --text-style-outfit: "Outfit", sans-serif;
+
+  --border-radius-8: 8px;
+}
