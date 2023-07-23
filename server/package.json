@@ -21,5 +21,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1",
     "sequelize-typescript": "^2.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
