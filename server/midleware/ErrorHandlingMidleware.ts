@@ -1,4 +1,3 @@
-import e from 'express';
 import { ApiError } from '../error/ApiError';
 import express from 'express';
 
