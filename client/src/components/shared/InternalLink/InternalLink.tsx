@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { joinClassNames } from '../../../helpers/joinClassNames';
 import './InternalLink.scss';
 import { StoreContext } from '../../../index';
@@ -24,7 +24,7 @@ export const InternalLink: FC<IProps> = ({
   return (
     <>
       {to ? (
-        <Link
+        <NavLink
           onClick={() => {
             navigationStore.setCurrentRoute(to);
             onClick && onClick();
@@ -37,7 +37,7 @@ export const InternalLink: FC<IProps> = ({
           ])}
         >
           {children}
-        </Link>
+        </NavLink>
       ) : (
         <button
           type="button"

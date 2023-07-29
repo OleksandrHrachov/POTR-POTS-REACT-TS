@@ -38,4 +38,12 @@
     font-family: var(--text-style-outfit);
     font-size: 12px;
   }
+
+  .icon-password {
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+  }
 }

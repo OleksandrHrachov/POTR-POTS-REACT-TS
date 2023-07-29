@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import { HOME_PAGE_ROUTE, LOGIN_PAGE_ROUTE } from '../../consts/consts';
 import { StoreContext } from '../..';
 import { InternalLink } from '../../components/shared/InternalLink';
+import { registration } from '../../http/userApi';
+import { observer } from 'mobx-react';
 
 interface IInitValue {
   firstName: string;
@@ -18,9 +20,9 @@ interface IInitValue {
   password: string;
 }
 
-export const RegistrationPage: FC = () => {
+export const RegistrationPage: FC = observer(() => {
   const navigate = useNavigate();
-  const { navigationStore } = useContext(StoreContext);
+  const { navigationStore, userStore } = useContext(StoreContext);
   const [isExistEmail, setIsExistEmail] = useState(false);
 
   const onCancelRegistration = () => {
@@ -49,12 +51,32 @@ export const RegistrationPage: FC = () => {
           <Formik
             initialValues={initValue}
             validationSchema={logInValidationSchema}
-            onSubmit={(values, actions) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
+            onSubmit={async (values, actions) => {
+              try {
+                const response = await registration(
+                  values.email,
+                  values.password,
+                  values.firstName,
+                  values.lastName
+                );
+
+                if (response) {
+                  if (response.userData) {
+                    const { id, email, firstName, lastName } =
+                      response.userData;
+
+                    userStore.setUser(id, email, firstName, lastName);
+                    userStore.setIsAuth(true);
+                    actions.resetForm();
+                  } else if (response.message === 'Email already exist') {
+                    setIsExistEmail(true);
+                  }
+                }
+              } catch (error) {
+                console.log('registration error =>', error);
+              } finally {
                 actions.setSubmitting(false);
-                actions.resetForm();
-              }, 1000);
+              }
             }}
           >
             {({
@@ -150,4 +172,4 @@ export const RegistrationPage: FC = () => {
       </div>
     </div>
   );
-};
+});

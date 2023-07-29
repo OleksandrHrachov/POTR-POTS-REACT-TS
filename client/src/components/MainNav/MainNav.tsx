@@ -34,14 +34,13 @@ export const MainNav: FC = observer(() => {
       navigationStore.setCurrentRoute(HOME_PAGE_ROUTE);
       navigate(HOME_PAGE_ROUTE);
     }
+    navigationStore.setCurrentRoute(HOME_PAGE_ROUTE);
+    navigate(HOME_PAGE_ROUTE);
   }, [userStore.isAuth]);
-
-  const logIn = () => {
-    userStore.setIsAuth(true);
-  };
 
   const logOut = () => {
     userStore.setIsAuth(false);
+    userStore.resetUser();
   };
 
   return (
@@ -56,7 +55,6 @@ export const MainNav: FC = observer(() => {
         <>
           <InternalLink
             to={LOGIN_PAGE_ROUTE}
-            // onClick={logIn}
           >
             LOG IN
           </InternalLink>
