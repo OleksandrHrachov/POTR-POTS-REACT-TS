@@ -1,9 +1,6 @@
 import { http, authHttp } from './index';
 import { AxiosError } from 'axios';
-import {
-  IServerRegistrationResponse,
-  // IServerRegistrationResponseError,
-} from './types';
+import { IServerRegistrationResponse } from './types';
 import { REGISTRATION_URL, LOGIN_URL } from './const';
 
 export const registration = async (
@@ -13,31 +10,69 @@ export const registration = async (
   lastName: string
 ): Promise<IServerRegistrationResponse | undefined> => {
   try {
-    const response = await http.post<IServerRegistrationResponse>(REGISTRATION_URL, {
-      email,
-      password,
-      firstName,
-      lastName,
-    });
+    const response = await http.post<IServerRegistrationResponse>(
+      REGISTRATION_URL,
+      {
+        email,
+        password,
+        firstName,
+        lastName,
+      }
+    );
+
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+    }
+
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError && error.response) {
-      console.log('RESPONSE_ERROR =>', error.response)
+      console.log('RESPONSE_ERROR =>', error.response);
+    } else {
+      console.log('RESPONSE_ERROR =>', error);
     }
   }
 };
 
-export const login = async (email: string, password: string) => {
-  const response = http.post(LOGIN_URL, {
-    email,
-    password,
-  });
+export const login = async (
+  email: string,
+  password: string
+): Promise<IServerRegistrationResponse | undefined> => {
+  try {
+    const response = await http.post(LOGIN_URL, {
+      email,
+      password,
+    });
 
-  return response;
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+    }
+
+    return response.data;
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      console.log('RESPONSE_ERROR =>', error.response);
+    } else {
+      console.log('RESPONSE_ERROR =>', error);
+    }
+  }
 };
 
-export const checkAuth = async () => {
-  const response = http.post('api/user/auth');
+export const checkAuth = async (): Promise<IServerRegistrationResponse | undefined> => {
+  try {
+    const response = await authHttp.get('api/user/auth');
 
-  return response;
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
+    }
+
+    return response.data;
+  } catch (error) {
+    if (error instanceof AxiosError && error.response) {
+      console.log('RESPONSE_ERROR =>', error.response);
+    } else {
+      console.log('RESPONSE_ERROR =>', error);
+    }
+  }
+  
 };

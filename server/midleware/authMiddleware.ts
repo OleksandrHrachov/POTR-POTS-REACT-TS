@@ -17,13 +17,13 @@ export const authMiddleware = (
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(' ')[1];
       if (!token) {
-        return res.status(401).json({ message: 'not authorized!!!' });
+        return res.status(200).json({ message: 'not authorized!!!' });
       }
       const decoded = jwt.verify(token, process.env.SECRET_KEY);
       req.body.user = decoded;
       next();
     } else {
-      return next(ApiError.badRequest('Invalid data'));
+      return res.status(200).json({ message: 'Invalid data!!!' });
     }
   } catch (e) {
     res.status(401).json({ message: 'not authorized!!!' });

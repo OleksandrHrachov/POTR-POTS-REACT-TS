@@ -24,8 +24,14 @@ export const MainNav: FC = observer(() => {
       const selectedRoute = routes[routes.length - 1];
       if (selectedRoute === LOGIN_PAGE_ROUTE) {
         navigate(LOGIN_PAGE_ROUTE);
+        navigationStore.setCurrentRoute(selectedRoute);
       }
-      navigationStore.setCurrentRoute(selectedRoute);
+
+      if (selectedRoute === REGISTRATION_PAGE_ROUTE) {
+        navigate(REGISTRATION_PAGE_ROUTE);
+        navigationStore.setCurrentRoute(selectedRoute);
+      }
+      
     }
   }, [pathname]);
 
@@ -41,6 +47,7 @@ export const MainNav: FC = observer(() => {
   const logOut = () => {
     userStore.setIsAuth(false);
     userStore.resetUser();
+    localStorage.removeItem('token');
   };
 
   return (

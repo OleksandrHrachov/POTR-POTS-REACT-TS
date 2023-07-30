@@ -3,7 +3,7 @@ import './RegistrationPage.scss';
 import { joinClassNames } from '../../helpers/joinClassNames';
 import { FormInput } from '../../components/shared/FormInput.ts';
 import { Formik, Form } from 'formik';
-import { logInValidationSchema } from './helper';
+import { registrationValidationSchema } from './helper';
 import { Button, buttonVariant } from '../../components/shared/Button';
 import { MutatingDots } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
@@ -50,8 +50,9 @@ export const RegistrationPage: FC = observer(() => {
           </div>
           <Formik
             initialValues={initValue}
-            validationSchema={logInValidationSchema}
+            validationSchema={registrationValidationSchema}
             onSubmit={async (values, actions) => {
+              setIsExistEmail(false);
               try {
                 const response = await registration(
                   values.email,

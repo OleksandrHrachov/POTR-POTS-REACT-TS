@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const logInValidationSchema = Yup.object().shape({
+export const registrationValidationSchema = Yup.object().shape({
   firstName: Yup.string()
     .min(2, 'min length 2 characters')
     .max(15, 'max length 15 characters')

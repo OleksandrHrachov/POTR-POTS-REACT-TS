@@ -1,4 +1,4 @@
-.registration {
+.login {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@
     }
 
     &-message {
-      color: var(--color-red);
+      color:var(--color-red);
       font-size: 14px;
       font-family: var(--text-style-outfit);
       display: flex;

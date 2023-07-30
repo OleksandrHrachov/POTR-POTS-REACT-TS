@@ -54,12 +54,30 @@ export class UserController {
 
     const token = generateToken(user.id, user.email);
 
-    return res.json({ token, userData: user });
+    return res.status(200).json({
+      token,
+      userData: {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
+    });
   }
 
   async checkAuth(req: IGetDecodedUserData, res: express.Response) {
     const { user } = req.body;
+    const { id, password } = user;
+    const currentUser: IUser = await User.findOne({ where: { id } });
     const token = generateToken(user.id, user.password);
-    return res.json({ token });
+    return res.status(200).json({
+      token,
+      userData: {
+        id: currentUser.id,
+        email: currentUser.email,
+        firstName: currentUser.firstName,
+        lastName: currentUser.lastName,
+      },
+    });
   }
 }
