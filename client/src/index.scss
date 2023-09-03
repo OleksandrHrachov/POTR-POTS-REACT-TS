@@ -3,8 +3,11 @@
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   background-color: var(--color-grey-F8);
+
+  * {
+    box-sizing: border-box;
+  }
 
   p {
     margin: 0;
@@ -24,8 +27,10 @@ body {
   --color-yellow-light: #ffec7a;
   --color-red: #eb5757;
 
-  --text-style-bebas: "Bebas Neue", sans-serif;
-  --text-style-outfit: "Outfit", sans-serif;
+  --text-style-bebas: 'Bebas Neue', sans-serif;
+  --text-style-outfit: 'Outfit', sans-serif;
 
   --border-radius-8: 8px;
+  --header-height: 70px;
+  --footer-height: 140px;
 }

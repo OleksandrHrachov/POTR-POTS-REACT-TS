@@ -2,8 +2,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
-  background: linear-gradient(10deg, var(--color-turquoise), var(--color-yellow-light));
+  height: var(--header-height);
+  background: linear-gradient(
+    10deg,
+    var(--color-turquoise),
+    var(--color-yellow-light)
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 
   &__container {
     display: flex;

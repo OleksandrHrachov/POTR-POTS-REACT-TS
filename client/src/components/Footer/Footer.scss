@@ -6,6 +6,7 @@ $block-width: 140px;
   justify-content: center;
   padding: 15px 0;
   border-top: 1px solid var(--color-grey-BD);
+  height: var(--footer-height);
 
   &__container {
     display: flex;
