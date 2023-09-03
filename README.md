@@ -1,6 +1,6 @@
 # POTR-POTS-REACT-TS
 
-This project is an improvement project [https://github.com/OleksandrHrachov/Potr_Pots](Potr_Pots) and is in progress.
+This project is an improvement project [Potr Pots](https://github.com/OleksandrHrachov/Potr_Pots) and is in progress.
 This project is a SPA written in React using TS, also added a Back-end (Express) for login and registration. I plan to add a shopping cart and localization for different countries.
 
 #Requirements:
