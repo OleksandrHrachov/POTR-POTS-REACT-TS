@@ -1,0 +1,9 @@
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 15px 0;
+  margin-top: var(--header-height);
+  flex-grow: 1;
+}

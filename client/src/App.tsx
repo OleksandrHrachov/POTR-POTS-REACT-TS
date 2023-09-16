@@ -4,11 +4,12 @@ import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { MutatingDots } from 'react-loader-spinner';
-import { HOME_PAGE_ROUTE } from './consts/consts';
 import { authRoutes, publicRoutes } from './consts/routes';
 import { StoreContext } from './';
 import { observer } from 'mobx-react';
 import { checkAuth } from './http/userApi';
+import { ErrorPage } from './pages/ErrorPage';
+import { HOME_PAGE_ROUTE } from './consts/consts';
 
 const App = observer(() => {
   const { userStore } = useContext(StoreContext);
@@ -46,8 +47,8 @@ const App = observer(() => {
   return (
     <div className="App">
       <Routes>
-        <Route path={HOME_PAGE_ROUTE} element={<Layout />}>
-          <Route index element={<HomePage />} />
+        <Route element={<Layout />}>
+          <Route path={HOME_PAGE_ROUTE} element={<HomePage />} />
           {userStore.isAuth &&
             authRoutes.map(({ path, Component }) => (
               <Route key={path} path={path} element={<Component />} />
@@ -56,7 +57,7 @@ const App = observer(() => {
             publicRoutes.map(({ path, Component }) => (
               <Route key={path} path={path} element={<Component />} />
             ))}
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<ErrorPage/>} />
         </Route>
       </Routes>
     </div>
