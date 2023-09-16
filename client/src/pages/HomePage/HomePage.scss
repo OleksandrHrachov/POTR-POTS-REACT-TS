@@ -1,11 +1,9 @@
 .home {
   display: flex;
   justify-content: center;
-  padding-top: 85px;
-
-  &__container {
-    
-  }
+  padding-top: 40px;
+  margin-top: var(--header-height);
+  flex-grow: 1;
 
   &__top {
     display: flex;

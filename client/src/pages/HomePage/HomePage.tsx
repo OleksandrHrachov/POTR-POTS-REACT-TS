@@ -33,7 +33,6 @@ export const HomePage: FC = () => {
             <img src={potDesktop} alt="pot" />
           </div>
         </div>
-        {/* for whom */}
       <div>
       <section className={'for-whom'}>
         <div className="container">
