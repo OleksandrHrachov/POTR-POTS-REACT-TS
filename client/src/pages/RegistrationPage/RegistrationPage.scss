@@ -1,3 +1,5 @@
+@import '../../utils/mixins';
+
 .registration {
   display: flex;
   align-items: center;
@@ -7,12 +9,18 @@
   margin-top: var(--header-height);
   flex-grow: 1;
 
+  &__container {
+    width: 100%;
+
+    @include onTablet {
+      width: 500px;
+    }
+  }
 
   &__form {
     margin: auto;
     padding: 15px;
     border: 1px solid var(--color-turquoise);
-    max-width: 400px;
     border-radius: var(--border-radius-8);
     background-color: var(--color-grey-F8);
 
