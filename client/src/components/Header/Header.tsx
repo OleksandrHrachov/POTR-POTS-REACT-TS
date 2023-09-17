@@ -7,7 +7,7 @@ import { joinClassNames } from '../../helpers/joinClassNames';
 export const Header: FC = () => {
   return (
     <header className={'header'}>
-      <div className={joinClassNames(['container', 'header__container'])}>
+      <div className={'header__container'}>
         <Logo />
         <MainNav />
       </div>

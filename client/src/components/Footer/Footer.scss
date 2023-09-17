@@ -1,3 +1,4 @@
+@import '../../utils/mixins';
 $block-width: 140px;
 
 .footer {
@@ -9,6 +10,9 @@ $block-width: 140px;
   height: var(--footer-height);
 
   &__container {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 15px;
     display: flex;
     justify-content: space-between;
   }
@@ -16,11 +20,16 @@ $block-width: 140px;
   &__title {
     text-align: center;
     font-family: var(--text-style-bebas);
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 20px;
+    line-height: 20px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 12px;
+
+    @include onTablet {
+      font-size: 24px;
+      line-height: 24px;
+    }
   }
 
   &__block {
@@ -30,12 +39,18 @@ $block-width: 140px;
 
   &__adrress-text {
     font-family: var(--text-style-outfit);
+    font-size: 14px;
     line-height: 24px;
+
+    @include onTablet {
+      font-size: 16px;
+    }
   }
 
   &__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   &__links-items {
@@ -52,7 +67,11 @@ $block-width: 140px;
       border-radius: 50%;
 
       &:hover {
-        background: linear-gradient(10deg, var(--color-turquoise), var(--color-yellow-light));
+        background: linear-gradient(
+          10deg,
+          var(--color-turquoise),
+          var(--color-yellow-light)
+        );
       }
     }
 

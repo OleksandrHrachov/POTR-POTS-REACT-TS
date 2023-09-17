@@ -1,8 +1,7 @@
 .header {
   display: flex;
-  align-items: center;
-  justify-content: center;
   height: var(--header-height);
+  justify-content: center;
   background: linear-gradient(
     10deg,
     var(--color-turquoise),
@@ -15,8 +14,11 @@
   z-index: 999;
 
   &__container {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 15px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 }
