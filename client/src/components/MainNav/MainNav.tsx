@@ -3,8 +3,7 @@ import {
   BASKET_PAGE_ROUTE,
   HOME_PAGE_ROUTE,
   LOGIN_PAGE_ROUTE,
-  REGISTRATION_PAGE_ROUTE,
-  PAYMENT_PAGE_ROUTE,
+  REGISTRATION_PAGE_ROUTE
 } from '../../consts/consts';
 import { InternalLink } from '../shared/InternalLink';
 import { StoreContext } from '../../index';

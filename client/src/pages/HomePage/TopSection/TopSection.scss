@@ -1,0 +1,134 @@
+@import '../../../utils/mixins';
+
+.top-section {
+  padding: 16px 0 0;
+  max-width: 1440px;
+  position: relative;
+
+  &__container {
+    margin-bottom: 85px;
+    
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+  
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  @include onDesktop {
+    padding: 20px 0 0;
+  }
+
+  &__content {
+    display: flex;
+    position: relative;
+
+    &-main {
+      width: 60%;
+
+      &-center {
+        width: max-content;
+        margin: 0 auto;
+      }
+
+      &-bottom {
+        display: flex;
+
+        &-inner {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    &-img-container {
+      margin: 0 auto 24px;
+
+      @include onTablet {
+        margin: 0;
+      }
+
+      &--mobile {
+        img {
+          width: 100%;
+        }
+        
+        @include onTablet {
+          display: none;
+        }
+      }
+
+      &--tablet-desktop {
+        display: none;
+
+        @include onTablet {
+          display: block;
+          min-width: 320px;
+          position: absolute;
+          z-index: -1;
+          right: 0;
+        }
+
+        @include onDesktop {
+          position: static;
+          max-width: 500px;
+        }
+      }
+    }
+
+    &-description {
+      font-family: var(--text-style-bebas);
+      font-size: 36px;
+      line-height: 36px;
+      letter-spacing: 0.15em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      color: var(--color-turquoise);
+      font-weight: bold;
+      margin: 0 0 20px;
+      -webkit-text-stroke: 0.7px var(--color-turquoise);
+
+      @include onTablet {
+        margin: 0;
+        font-size: 64px;
+        line-height: 64px;
+      }
+
+      @include onDesktop {
+        -webkit-text-stroke: 1px var(--color-turquoise);
+      }
+    }
+
+    &-price {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        align-self: flex-end;
+        margin-top: -16px;
+        margin-bottom: 45px;
+        padding-right: 130px;
+      }
+
+      &-number {
+        font-family: var(--text-style-outfit);
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: 600;
+        color: var(--color-grey-33);
+        margin: 0;
+        letter-spacing: -0.5px;
+      }
+      
+      &-description {
+        font-family: var(--text-style-outfit);
+        width: 140px;
+        font-size: 14px;
+        line-height: 21px;
+        margin: 0;
+      }
+    }
+  }
+}

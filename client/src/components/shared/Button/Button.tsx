@@ -19,7 +19,7 @@ interface IProps {
 
 export const Button: FC<IProps> = ({
   title,
-  type,
+  type = 'button',
   variant,
   isDisabled,
   onClick,

@@ -1,0 +1,137 @@
+@import '../../../utils/mixins';
+
+.about-us {
+  &__container {
+    overflow: hidden;
+    margin-bottom: 85px;
+    
+    @include onTablet {
+      margin-bottom: 130px;
+    }
+  
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__top-title {
+    font-size: 58px;
+    line-height: 58px;
+    letter-spacing: 0.15em;
+    color: var(--color-grey-33);
+    margin-bottom: 60px;
+
+    @include onTablet {
+      margin-bottom: 190px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__container-wrapper {
+    @include onTablet {
+      position: relative;
+      overflow: visible;
+    }
+  }
+
+  &__name {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      font-family: var(--text-style-bebas);
+      font-size: 230px;
+      line-height: 230px;
+      letter-spacing: 0.15em;
+      -webkit-text-stroke: 2px var(--color-turquoise);
+      position: absolute;
+    }
+
+    @include onDesktop {
+      font-size: 288px;
+      line-height: 288px;
+      -webkit-text-stroke: 2.5px var(--color-turquoise);
+    }
+
+    &-1 {
+      @include onTablet {
+        top: -150px;
+        left: -45px;
+      }
+
+      @include onDesktop {
+        top: -135px;
+        left: 70px;
+      }
+    }
+
+    &-2 {
+      @include onTablet {
+        right: -30px;
+        top: 200px;
+      }
+
+      @include onDesktop {
+        right: -40px;
+        top: initial;
+        bottom: -200px;
+      }
+    }
+  }
+
+  &__wrapper {
+    @include onTablet {
+      display: flex;
+      margin-bottom: 72px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 150px;
+    }
+  }
+
+  &__img {
+
+    &--mobile {
+      margin: 0 auto 36px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        max-width: 340px;
+      }
+
+      @include onDesktop {
+        max-width: 677px;
+      }
+    }
+  }
+
+  &__description {
+    max-width: 400px;
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 312px;
+      margin-bottom: 0;
+      padding-top: 50px;
+    }
+
+    @include onDesktop {
+      max-width: 336px;
+      margin: 0 60px 0 0;
+      padding: 0;
+      align-self: center;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@import '../../../../utils/mixins';
+
+.message-us {
+  &__form {
+    margin-bottom: 90px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    &-wrapper {
+
+      @include onTablet {
+        max-width: 350px;
+        margin-right: 136px;
+        padding: 24px 0 0 4px;
+      }
+
+      @include onDesktop {
+        margin-right: 265px;
+        padding: 38px 0 0 ;
+      }
+    }
+
+    &-title {
+      font-size: 24px;
+      line-height: 36px;
+      color: #000;
+      margin-bottom: 24px;
+
+      @include onTablet {
+        margin-bottom: 14px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 24px;
+      }
+
+      &-sending {
+        padding-left: 16px;
+        color: var(--color-turquoise)
+      }
+
+      &-error {
+        padding-left: 16px;
+        color: var(--color-red)
+      }
+    }
+
+    &-item {
+      display: block;
+      width: 100%;
+      font-family: var(--text-style-outfit);
+      color: var(--color-grey-4F);
+      font-size: 16px;
+      line-height: 24px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      padding: 0 0 4px 6px;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 25px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 20px;
+      }
+
+      &::placeholder {
+        font-family: var(--text-style-outfit);
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-grey-4F);
+      }
+    }
+
+    &-message {
+      margin-bottom: 30px;
+
+      resize: none;
+      overflow: auto;
+
+      @include onTablet {
+        margin-bottom: 35px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 60px;
+      }
+    }
+
+    &-btn {
+      display: block;
+      margin: 0 auto;
+      font-family: var(--text-style-outfit);
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: bold;
+      color:var(--color-grey-33);
+      background-color: transparent;
+      padding: 0;
+      outline: none;
+      border: none;
+      border-bottom: 1px dashedvar(--color-grey-33);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-red);
+        border-bottom: 1px dashed var(--color-red);
+      }
+    }
+  }
+}
+
+
+
